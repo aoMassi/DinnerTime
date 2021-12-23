@@ -48,3 +48,47 @@ Event.create!(
 end
 
 puts "Finished creating events"
+
+good_reviews = [
+  "Great location and fun atmosphere!",
+  "Good spot!",
+  "Excelent natural light",
+  "Perfect for night shoots",
+  "Gorgeaus landscape",
+  "100% recomand!Will book again for sure!",
+  "Perfect for romantic photoshoots",
+  "Great place for good price",
+  "Cannot say enough good things about this venue",
+  "Simply gorgeaus",
+  "The place was just as the description"
+]
+
+bad_reviews = [
+  "A bit to tiny",
+  "Not engnough natural light",
+  "To expensive",
+  "Unclean",
+  "The view was not as advertised",
+]
+
+
+puts "Creating reviews"
+
+
+20.times do
+  Review.create!(
+    content: good_reviews.sample,
+    rating: rand(1..10),
+    event: Event.all.sample
+  )
+end
+
+10.times do
+  Review.create!(
+    content: bad_reviews.sample,
+    rating: rand(1..10),
+    event: Event.all.sample
+  )
+end
+
+puts "Finished creating reviews"

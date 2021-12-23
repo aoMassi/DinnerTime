@@ -13,3 +13,15 @@
  *= require_tree .
  *= require_self
  */
+
+
+// External libraries
+@import "bootstrap/scss/bootstrap";
+
+
+
+// Your CSS partials
+
+@import "components/index";
+@import "font-awesome";
+@import "flatpickr/dist/flatpickr";

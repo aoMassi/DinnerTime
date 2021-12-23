@@ -15,6 +15,7 @@ class EventsController < ApplicationController
             redirect_to event_path(@event)
         else
             render :new 
+        end
     end
 
     def show
@@ -44,6 +45,6 @@ class EventsController < ApplicationController
     private
 
     def event_params
-        params.require(@event).permit(:name, :location, :description, :cuisine_type, :price, :start_time, :end_time, :user)
+        params.require(:event).permit(:name, :location, :description, :cuisine_type, :price, :start_time, :end_time, :user)
     end
 end
