@@ -40,7 +40,7 @@ Event.create!(
   description:Faker::Food.description,
   cuisine_type:Faker::Food.ethnic_category,
   price: rand(1..10),
-  places_available: rand(0..5),
+  places_available: rand(1..6),
   start_time: "2021-06-14 18:00:00",
   end_time: "2021-06-14 21:00:00",
   user: [user1, user2].sample
@@ -50,25 +50,25 @@ end
 puts "Finished creating events"
 
 good_reviews = [
-  "Great location and fun atmosphere!",
-  "Good spot!",
-  "Excelent natural light",
-  "Perfect for night shoots",
-  "Gorgeaus landscape",
-  "100% recomand!Will book again for sure!",
-  "Perfect for romantic photoshoots",
-  "Great place for good price",
-  "Cannot say enough good things about this venue",
-  "Simply gorgeaus",
-  "The place was just as the description"
+  "Great Diner and fun atmosphere!",
+  "I loved the dessert !",
+  "Excelent receipe, everyone around the table was fun",
+  "I has a great pleasure taking place to this event and meeting great people around lekker food",
+  "Amazing time spent together ",
+  "100% recomand!Will do it again for sure!",
+  "Perfect diner Thanks to our chef od the day",
+  "I really had fun and ate very well",
+  "CThe food was great as well as the people present at this event",
+  "Just super happy I went there !",
+  "Thanks to the chef of the day who prepared great fresh food"
 ]
 
 bad_reviews = [
-  "A bit to tiny",
-  "Not engnough natural light",
-  "To expensive",
-  "Unclean",
-  "The view was not as advertised",
+  "A bit too short, I would have loved to stay longer",
+  "Ingredients were not 100% fresh",
+  "Too expensive",
+  "Food not fresh",
+  "The chef was a bit too serious, I wish we could talk more ",
 ]
 
 

@@ -1,0 +1,44 @@
+<div class="containerShow">
+  <h1 class="showHeader"> <%= @event.name %></h1>
+  <div class="containerLocation">
+    <p class="showLocation"> 📍 Location: <%= @event.location %></p>
+    <p><%= @event.description %></p>
+    <p class="card-price"> Price / hour: <%= @event.price %>€</p>
+  </div>
+  
+    
+</div>
+
+
+
+
+
+
+<!-- Reviews-->
+   <div class="row">
+        <div class="col-12 col-sm-6">
+          <h3>Reviews</h3>
+          <% if @event.reviews.empty? %>
+            <small><em class="text-muted">Be the first one to review this event</em></small>
+          <% end %>
+          <% @event.reviews.each do |review| %>
+            <div>
+              <% review.rating.times do %>
+                <i class="fas fa-star star-yellow"></i>
+              <% end %>
+              <small><em class="text-muted"><%= distance_of_time_in_words_to_now(review.created_at) %> ago</em></small>
+              <p class="mb-0"><%= review.content %></p>
+            </div>
+            <hr>
+          <% end %>
+        </div>
+        <div class="col-12 col-sm-6">
+          <div class="bg-white rounded p-3">
+            <h5>Add your review</h5>
+            <%= simple_form_for [@event, @review] do |f| %>
+              <%= f.input :content, placeholder: 'Add your review here...' %>
+              <%= f.input :rating, as: :select, collection: (1..5), required: true, prompt: "What's your rating", input_html: { id: 'review_rating' } %>
+              <%= f.submit class:'btn btn-flat' %>
+            <% end %>
+          </div>
+        </div>

@@ -1,4 +1,4 @@
-<h2>All our events</h2><%= link_to "New event", new_event_path, class: "btn btn-secondary" %>
+<h2 class="text-center">All our events</h2><%= link_to "New event", new_event_path, class: "btn btn-secondary m-5" %>
 <% @events.each do |event| %>
   <%= link_to event_path(event), class:"text-decoration-none" do %>
     <div class="card-product">

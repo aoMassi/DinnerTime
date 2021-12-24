@@ -7,6 +7,9 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+
+require("bootstrap")
+require("flatpickr")
 import { initFlatpickr } from "../plugins/flatpickr";
 
 import "bootstrap";
@@ -21,3 +24,5 @@ document.addEventListener('turbolinks:load', () => {
     initFlatpickr();
     
   });
+
+  require("../stylesheets/application.scss")
