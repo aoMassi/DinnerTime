@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-
+    before_action :set_event, only: [:show, :edit, :update, :destroy]
     def index
         @events = Event.all
     end
@@ -11,7 +11,7 @@ class EventsController < ApplicationController
     def create
         @event = Event.new(event_params)
         @event.user = current_user
-        if @event.save
+        if @event.save!
             redirect_to event_path(@event)
         else
             render :new 
@@ -19,27 +19,28 @@ class EventsController < ApplicationController
     end
 
     def show
-        @event = Event.find(params[:id])
+        @review = Review.new(id: @event)
 
     end
 
     def edit
-        @event = Event.find(params[:id])
 
     end
 
-    def updated
-        @event = Event.find(params[:id])
+    def update
         @event.update(event_params)
         redirect_to event_path(@event)
 
     end
 
     def destroy
-        @event = Event.find(params[:id])
         @event.destroy
         redirect_to event_path(@event)
 
+    end
+
+    def set_event
+       @event = Event.find(params[:id])
     end
 
     private

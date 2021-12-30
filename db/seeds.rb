@@ -78,7 +78,7 @@ puts "Creating reviews"
 20.times do
   Review.create!(
     content: good_reviews.sample,
-    rating: rand(1..10),
+    rating: rand(1..5),
     event: Event.all.sample
   )
 end
@@ -86,7 +86,7 @@ end
 10.times do
   Review.create!(
     content: bad_reviews.sample,
-    rating: rand(1..10),
+    rating: rand(1..5),
     event: Event.all.sample
   )
 end

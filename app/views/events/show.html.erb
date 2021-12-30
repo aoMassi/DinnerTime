@@ -3,9 +3,10 @@
   <div class="containerLocation">
     <p class="showLocation"> 📍 Location: <%= @event.location %></p>
     <p><%= @event.description %></p>
-    <p class="card-price"> Price / hour: <%= @event.price %>€</p>
+    <p class="card-price"> Price : <%= @event.price %>€</p>
+    <p> Places available : <%= @event.places_available %></p>
   </div>
-  
+  <%= link_to "Back", events_path, class: "btn btn-secondary" %>
     
 </div>
 
@@ -18,9 +19,9 @@
    <div class="row">
         <div class="col-12 col-sm-6">
           <h3>Reviews</h3>
-          <% if @event.reviews.empty? %>
-            <small><em class="text-muted">Be the first one to review this event</em></small>
-          <% end %>
+          <%# if @event.reviews.empty? %>
+            <%# <small><em class="text-muted">Be the first one to review this event</em></small> %>
+          <% #end %>
           <% @event.reviews.each do |review| %>
             <div>
               <% review.rating.times do %>

@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
   def create
-    @review = Review.new(review_params)
+    @review = Review.new(reviews_params)
     @review.event = Event.find(params[:event_id])
     if @review.save!
       redirect_to review_path(@review)
@@ -11,7 +11,7 @@ class ReviewsController < ApplicationController
 
   private
 
-  def review_params
+  def reviews_params
     params.require(:review).permit(:content, :rating, :event)
   end
 end
